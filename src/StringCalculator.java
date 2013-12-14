@@ -1,5 +1,4 @@
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by f.fleureau on 14/12/13.
@@ -7,11 +6,7 @@ import java.util.List;
 public class StringCalculator {
 
     public int add(String numbers) {
-        if ("".equals(numbers)) {
-            return 0;
-        }
-        List<String> stringList = Arrays.asList(numbers.split(","));
-        return stringList.stream()
+        return "".equals(numbers) ? 0 : Arrays.asList(numbers.split(",")).stream()
                 .mapToInt(Integer::parseInt)
                 .reduce((left, right) -> left + right).getAsInt();
     }
